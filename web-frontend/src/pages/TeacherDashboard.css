@@ -1,0 +1,448 @@
+.teacher-dashboard {
+  min-height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(760px 360px at -5% 0%, rgba(28, 202, 171, 0.2), transparent 68%),
+    radial-gradient(640px 420px at 96% 6%, rgba(17, 150, 225, 0.2), transparent 70%);
+  animation: fade-in 260ms ease-out;
+}
+
+.teacher-dashboard::before,
+.teacher-dashboard::after {
+  content: '';
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(56px);
+}
+
+.teacher-dashboard::before {
+  top: -160px;
+  left: -130px;
+  background: rgba(35, 193, 160, 0.24);
+  animation: drift 14s ease-in-out infinite;
+}
+
+.teacher-dashboard::after {
+  bottom: -160px;
+  right: -110px;
+  background: rgba(37, 150, 223, 0.2);
+  animation: drift 16s ease-in-out infinite reverse;
+}
+
+.teacher-dashboard .dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(156, 190, 221, 0.26);
+  background: rgba(9, 22, 42, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+.teacher-dashboard .header-content {
+  max-width: 1360px;
+  margin: 0 auto;
+  min-height: 88px;
+  padding: 14px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teacher-dashboard .user-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.teacher-dashboard .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, #17bea9, #18a4d2);
+  box-shadow: 0 12px 24px rgba(10, 98, 132, 0.36);
+}
+
+.teacher-dashboard .avatar-button {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  border: 0;
+  padding: 0;
+  color: #ecfaff;
+  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  background: rgba(4, 13, 28, 0.84);
+}
+
+.teacher-dashboard .profile-dropdown-container {
+  position: relative;
+}
+
+.teacher-dashboard .profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 170px;
+  border-radius: 12px;
+  border: 1px solid rgba(150, 189, 224, 0.24);
+  background: rgba(9, 21, 39, 0.95);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  animation: rise-in 220ms ease;
+}
+
+.teacher-dashboard .dropdown-item {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(130, 161, 195, 0.12);
+  border-radius: 0;
+  padding: 10px 12px;
+  text-align: left;
+  color: #d5ebff;
+  background: transparent;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.teacher-dashboard .dropdown-item:last-child {
+  border-bottom: 0;
+}
+
+.teacher-dashboard .dropdown-item:hover {
+  background: rgba(32, 51, 78, 0.72);
+}
+
+.teacher-dashboard .dropdown-item.danger {
+  color: #ffb4b7;
+}
+
+.teacher-dashboard .user-info h1 {
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  color: #ecf8ff;
+}
+
+.teacher-dashboard .user-info p {
+  margin-top: 3px;
+  color: #afcce6;
+  font-size: 0.92rem;
+}
+
+.teacher-dashboard .stats-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 26px auto 0;
+  padding: 0 26px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.teacher-dashboard .stat-card {
+  border-radius: 18px;
+  border: 1px solid rgba(170, 205, 236, 0.24);
+  background: linear-gradient(160deg, rgba(19, 38, 68, 0.94), rgba(8, 20, 39, 0.86));
+  padding: 17px 18px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.teacher-dashboard .stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.32);
+  border-color: rgba(186, 225, 255, 0.36);
+}
+
+.teacher-dashboard .stat-card h3 {
+  font-size: 1.7rem;
+  margin-bottom: 4px;
+}
+
+.teacher-dashboard .stat-card p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a4c3df;
+}
+
+.teacher-dashboard .stat-purple h3 {
+  color: #8ec8ff;
+}
+
+.teacher-dashboard .stat-blue h3 {
+  color: #77e3ff;
+}
+
+.teacher-dashboard .stat-green h3 {
+  color: #66efbe;
+}
+
+.teacher-dashboard .stat-orange h3 {
+  color: #ffce79;
+}
+
+.teacher-dashboard .dashboard-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 18px auto 0;
+  padding: 0 26px 34px;
+}
+
+.teacher-dashboard .tasks-section {
+  border-radius: 22px;
+  border: 1px solid rgba(161, 200, 234, 0.24);
+  background: linear-gradient(160deg, rgba(14, 30, 54, 0.94), rgba(9, 19, 37, 0.88));
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.3);
+  padding: 18px;
+}
+
+.teacher-dashboard .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.teacher-dashboard .section-header h2 {
+  font-size: 1.15rem;
+  color: #e6f5ff;
+}
+
+.teacher-dashboard .create-btn {
+  min-height: 40px;
+  border-radius: 12px;
+  border-color: rgba(126, 242, 208, 0.32);
+  color: #effffc;
+  font-size: 0.83rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: linear-gradient(120deg, #18a88f, #17a2c8 65%, #23c176);
+  box-shadow: 0 10px 22px rgba(16, 133, 126, 0.34);
+}
+
+.teacher-dashboard .tasks-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.teacher-dashboard .task-card {
+  border-radius: 16px;
+  border: 1px solid rgba(151, 187, 220, 0.18);
+  background: linear-gradient(160deg, rgba(22, 38, 62, 0.85), rgba(11, 24, 44, 0.72));
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+  animation: rise-in 280ms var(--ease-out) both;
+}
+
+.teacher-dashboard .task-card:nth-child(2n) {
+  animation-delay: 60ms;
+}
+
+.teacher-dashboard .task-card:nth-child(3n) {
+  animation-delay: 100ms;
+}
+
+.teacher-dashboard .task-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(170, 213, 248, 0.36);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-dashboard .task-card.draft {
+  border-left: 3px solid #f3ab3f;
+}
+
+.teacher-dashboard .task-card.scheduled {
+  border-left: 3px solid #28b4ff;
+}
+
+.teacher-dashboard .task-card.active {
+  border-left: 3px solid #28d48f;
+}
+
+.teacher-dashboard .task-card.completed {
+  border-left: 3px solid #8aa8c6;
+}
+
+.teacher-dashboard .task-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.teacher-dashboard .task-title-section h3 {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #e8f5ff;
+  margin-bottom: 6px;
+}
+
+.teacher-dashboard .status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+}
+
+.teacher-dashboard .status-draft {
+  color: #ffe8c4;
+  background: rgba(194, 121, 24, 0.32);
+}
+
+.teacher-dashboard .status-scheduled {
+  color: #d7f2ff;
+  background: rgba(29, 132, 199, 0.36);
+}
+
+.teacher-dashboard .status-active {
+  color: #d5ffe9;
+  background: rgba(31, 165, 106, 0.36);
+}
+
+.teacher-dashboard .status-completed {
+  color: #d9eaff;
+  background: rgba(84, 117, 148, 0.42);
+}
+
+.teacher-dashboard .task-type-badge {
+  border-radius: 999px;
+  border: 1px solid rgba(143, 178, 210, 0.26);
+  padding: 3px 9px;
+  color: #b6d4ef;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+.teacher-dashboard .task-agenda {
+  margin-top: 10px;
+  color: #bbd4ea;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.teacher-dashboard .task-meta {
+  margin-top: 11px;
+  border-radius: 11px;
+  border: 1px solid rgba(131, 168, 201, 0.16);
+  background: rgba(7, 18, 34, 0.38);
+  padding: 8px 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.teacher-dashboard .meta-item {
+  color: #a6c6e0;
+  font-size: 0.76rem;
+}
+
+.teacher-dashboard .task-actions {
+  margin-top: 11px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.teacher-dashboard .action-btn {
+  min-height: 36px;
+  border-radius: 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.teacher-dashboard .schedule-btn {
+  border-color: rgba(131, 222, 255, 0.28);
+  background: linear-gradient(120deg, #1388cc, #19aaaf);
+}
+
+.teacher-dashboard .copy-btn {
+  border-color: rgba(130, 244, 191, 0.3);
+  background: linear-gradient(120deg, #1b9f75, #1dc79d);
+}
+
+.teacher-dashboard .delete-btn {
+  color: #ffd4d6;
+  border-color: rgba(247, 130, 137, 0.3);
+  background: rgba(117, 27, 39, 0.6);
+}
+
+.teacher-dashboard .loading-container {
+  min-height: 170px;
+  display: grid;
+  place-items: center;
+}
+
+.teacher-dashboard .glass-modal {
+  width: min(700px, 100%);
+}
+
+.teacher-dashboard .modal-header h2 {
+  color: #eaf8ff;
+  font-size: 1.1rem;
+}
+
+.teacher-dashboard .modal-form textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.teacher-dashboard .modal-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 920px) {
+  .teacher-dashboard .header-content,
+  .teacher-dashboard .stats-section,
+  .teacher-dashboard .dashboard-content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .teacher-dashboard .task-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .teacher-dashboard .header-content {
+    min-height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .teacher-dashboard .stats-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-dashboard .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .teacher-dashboard .create-btn {
+    width: 100%;
+  }
+
+  .teacher-dashboard .tasks-grid {
+    grid-template-columns: 1fr;
+  }
+}
