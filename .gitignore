@@ -1,2 +1,51 @@
-venv/ 
-ai-service/venv/ 
+# ======================
+# ENV FILES (SECRETS)
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# FRONTEND
+# ======================
+web-frontend/node_modules/
+web-frontend/dist/
+web-frontend/build/
+
+# ======================
+# PYTHON AI SERVICE
+# ======================
+ai-service/venv/
+ai-service/__pycache__/
+*.pyc
+
+# ======================
+# JAVA BACKEND
+# ======================
+backend-api/target/
+*.log
+
+# ======================
+# IDE
+# ======================
+.vscode/
+.idea/
+*.iml
+
+# ======================
+# OS FILES
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# KEYS
+# ======================
+*.pem
+*.key
+*.crt
+
+# ======================
+# DATABASE
+# ======================
+*.db
