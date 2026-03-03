@@ -3,12 +3,20 @@
 # ======================
 .env
 .env.*
+
 # ======================
-# FRONTEND
+# FRONTEND (Node)
 # ======================
 web-frontend/node_modules/
 web-frontend/dist/
 web-frontend/build/
+
+# ======================
+# NODE BACKEND
+# ======================
+backend-api/node_modules/
+backend-api/dist/
+backend-api/build/
 
 # ======================
 # PYTHON AI SERVICE
@@ -16,13 +24,6 @@ web-frontend/build/
 ai-service/venv/
 ai-service/__pycache__/
 *.pyc
-
-# ======================
-# JAVA BACKEND
-# ======================
-backend-api/node_modules/
-backend-api/target/
-*.log
 
 # ======================
 # IDE
