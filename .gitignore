@@ -20,6 +20,7 @@ ai-service/__pycache__/
 # ======================
 # JAVA BACKEND
 # ======================
+backend-api/node_modules/
 backend-api/target/
 *.log
 
