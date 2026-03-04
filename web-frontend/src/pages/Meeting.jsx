@@ -41,6 +41,15 @@ const Meeting = () => {
         iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
     };
 
+    const applyLocalUnmirror = () => {
+        if (!localVideoRef.current) {
+            return;
+        }
+
+        localVideoRef.current.style.transform = 'scaleX(-1)';
+        localVideoRef.current.style.webkitTransform = 'scaleX(-1)';
+    };
+
     useEffect(() => {
         const fetchTask = async () => {
             try {
@@ -65,11 +74,18 @@ const Meeting = () => {
         let cancelled = false;
 
         const setup = async () => {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'user' },
+                audio: true
+            });
             localStreamRef.current = stream;
 
             if (localVideoRef.current) {
                 localVideoRef.current.srcObject = stream;
+                localVideoRef.current.onloadedmetadata = () => {
+                    applyLocalUnmirror();
+                };
+                applyLocalUnmirror();
             }
 
             if (user.role === 'student') {

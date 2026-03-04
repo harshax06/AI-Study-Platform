@@ -135,6 +135,16 @@
   object-fit: cover;
 }
 
+.my-video {
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+.remote-video {
+  transform: none;
+  -webkit-transform: none;
+}
+
 .user-label {
   position: absolute;
   left: 12px;
