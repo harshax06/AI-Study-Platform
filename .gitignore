@@ -49,3 +49,14 @@ Thumbs.db
 # DATABASE
 # ======================
 *.db
+# Logs
+*.log
+
+# Python cache (global)
+__pycache__/
+
+# Coverage reports
+coverage/
+
+# React build cache
+web-frontend/.vite/
